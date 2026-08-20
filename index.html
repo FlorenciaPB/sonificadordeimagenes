@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonificador de Imágenes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="main-container">
+    <header class="header">
+      <h1>Sonificador de Imágenes</h1>
+      <p class="subtitle">Explora el sonido escondido en los colores de tu imagen</p>
+    </header>
+
+    <!-- Tarjetas de mapeo RGB -->
+    <section class="rgb-cards">
+      <div class="card card-red">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        </div>
+        <div class="card-content">
+          <span class="channel-badge badge-r">Rojo (R)</span>
+          <span class="channel-label">Volumen</span>
+          <span class="channel-val" id="val-r">0%</span>
+        </div>
+      </div>
+
+      <div class="card card-green">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-9 6 18 3-9h3"></path></svg>
+        </div>
+        <div class="card-content">
+          <span class="channel-badge badge-g">Verde (G)</span>
+          <span class="channel-label">Frecuencia</span>
+          <span class="channel-val" id="val-g">0 Hz</span>
+        </div>
+      </div>
+
+      <div class="card card-blue">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </div>
+        <div class="card-content">
+          <span class="channel-badge badge-b">Azul (B)</span>
+          <span class="channel-label">Nota / Efecto</span>
+          <span class="channel-val" id="val-b">Limpio</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controles -->
+    <div class="controls-bar">
+      <button id="btnStartAudio" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Activar Audio
+      </button>
+
+      <label for="imageInput" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        Cargar Imagen
+      </label>
+      <input type="file" id="imageInput" accept="image/*" style="display: none;">
+    </div>
+
+    <!-- Imagen y Canvas -->
+    <div class="canvas-wrapper">
+      <div class="canvas-placeholder" id="placeholder">
+        <p>Sube una imagen para comenzar a sonificar</p>
+      </div>
+      <canvas id="imageCanvas"></canvas>
+    </div>
+
+    <!-- Mensaje de Estado -->
+    <div class="status-pill" id="status">
+      Haz clic en <strong>Activar Audio</strong> y pasa el cursor sobre la imagen.
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
